@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const ArtistSchema = Schema({
-  //_id: String,
   name: String,
   photo: String,
 });

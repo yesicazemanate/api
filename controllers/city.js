@@ -49,7 +49,7 @@ const CityController = {
     let {id} = req.params;
     let {name , department} = req.body;
 
-    Artist .findByIdAndUpdate(id, name, department,{ returnDocument: "after" })
+    Artist.findByIdAndUpdate(id, name, department,{ returnDocument: "after" })
       .then((updatedCity) => {
         if (!updatedCity)
           return res

@@ -18,7 +18,7 @@ const ArtistController = {
     Artist.findById(artistId).exec()
       .then((data) => {
         if (!data) return res.status(404).send({ message: "Artist not found" });
-        return res.status(200).json(data);
+        return res.status(200).send(data);
       })
       .catch((err) =>
         res.status(500).send({ message: `Internal error-> ${err}` })
@@ -31,7 +31,7 @@ const ArtistController = {
       artist.name = name;
       artist.photo = photo;
       
-        artist .save()
+        artist.save()
         .then((storedArtist) => {
           storedArtist
             ? res.status(200).json({ artist: storedArtist })
@@ -45,11 +45,11 @@ const ArtistController = {
       return res.status(400).send({ message: "Data is not right" });
     }
   },
-  updateArtist: function (req, res) {
+   updateArtist: function (req, res) {
     let {id} = req.params;
-    let {name , photo} = req.body;
+    let {name , department} = req.body;
 
-    Artist .findByIdAndUpdate(id, name, photo,{ returnDocument: "after" })
+    Artist.findByIdAndUpdate(id, name, department,{ returnDocument: "after" })
       .then((updatedArtist) => {
         if (!updatedArtist)
           return res
