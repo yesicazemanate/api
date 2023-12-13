@@ -2,6 +2,7 @@
 
 import express from "express";
  import artist_routes from './routers/artist.js'
+ import city_routes from './routers/city.js'
 
 const app = express();
 
@@ -13,7 +14,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // routes
-app.use("/concert/artist", artist_routes);
+app.use("/concert_page/artist", artist_routes);
+app.use("/concert_page/city", city_routes);
 
 export default app
 
